@@ -8,9 +8,6 @@
     "guzzlehttp/guzzle": ">=6.0"
   },
   "autoload": {
-    "classmap": [
-      "bbApiRequestConflicts.php",
-      "bbApiRequestConflictsException.php"
-    ]
+    "psr-4": { "bbApiRequestConflicts\\": "src/" }
   }
 }
