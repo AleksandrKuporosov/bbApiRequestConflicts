@@ -1,0 +1,10 @@
+{
+  "name": "AleksandrKuporosov/bbApiRequestConflicts",
+  "description": "Bitbucket API client for getting requests with conflicts",
+  "version": "dev-master",
+  "license": "free",
+  "require": {
+    "php": ">=5.5.0",
+    "guzzlehttp/guzzle": "dev-master"
+  }
+}
