@@ -3,6 +3,12 @@
   "description": "Bitbucket API client for getting requests with conflicts",
   "version": "1.0.0",
   "license": "free",
+  "authors": [
+    {
+      "name": "Aleksandr Kuporosov",
+      "email": "cca.alexk@gmail.com",
+    }
+  ],
   "require": {
     "php": ">=5.5.0",
     "guzzlehttp/guzzle": ">=6.0"
