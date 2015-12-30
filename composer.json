@@ -1,7 +1,7 @@
 {
   "name": "aleksandr-kuporosov/bb-api-request-conflicts",
   "description": "Bitbucket API client for getting requests with conflicts",
-  "version": "dev-master",
+  "version": "0.1",
   "license": "free",
   "require": {
     "php": ">=5.5.0",
