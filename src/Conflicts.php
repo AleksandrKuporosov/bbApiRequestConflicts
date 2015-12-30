@@ -111,6 +111,17 @@ class Conflicts
     }
 
     /**
+     * Check if there conflicts in request
+     * @param $requestId
+     * @return int
+     */
+    protected function isConflicts($requestId)
+    {
+        $diff = $this->client->get($this->endpoint . '/' . $requestId . '/diff')->getBody();
+        return stripos($diff, '+<<<<<<< destination:');
+    }
+
+    /**
      * List of requests links with conflicts
      * @return array
      */
@@ -131,8 +142,7 @@ class Conflicts
                     continue;
                 }
 
-                $diff = $this->client->get($this->endpoint . '/' . $request['id'] . '/diff')->getBody();
-                if (stripos($diff, '+<<<<<<< destination:')) {
+                if ($this->isConflicts($requests['id'])) {
                     $links[] = $request['links']['html']['href'];
                 }
             }
