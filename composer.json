@@ -6,5 +6,11 @@
   "require": {
     "php": ">=5.5.0",
     "guzzlehttp/guzzle": ">=6.0"
+  },
+  "autoload": {
+    "classmap": [
+      "bbApiRequestConflicts.php",
+      "bbApiRequestConflictsException.php"
+    ]
   }
 }
