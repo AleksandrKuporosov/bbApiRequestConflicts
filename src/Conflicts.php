@@ -142,7 +142,7 @@ class Conflicts
                     continue;
                 }
 
-                if ($this->isConflicts($requests['id'])) {
+                if ($this->isConflicts($request['id'])) {
                     $links[] = $request['links']['html']['href'];
                 }
             }
