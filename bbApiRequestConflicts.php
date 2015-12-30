@@ -2,6 +2,8 @@
 
 namespace bbApiRequestConflicts;
 
+use GuzzleHttp\Client;
+
 class bbApiRequestConflicts
 {
     private $endpoint;
@@ -19,9 +21,9 @@ class bbApiRequestConflicts
         $config = array_merge($this->defaultConfig(), $config);
         $required = $this->requiredConfig();
 
-        foreach ($required as $key => $value) {
-            if (!isset($config[$key])) {
-                throw new bbApiRequestConflictsException("{$key} is required in config");
+        foreach ($required as $option) {
+            if (!isset($config[$option])) {
+                throw new bbApiRequestConflictsException("{$option} is required in config");
             }
         }
 
@@ -30,14 +32,14 @@ class bbApiRequestConflicts
 
     protected function init($config)
     {
-        $this->client = new GuzzleHttp\Client([
+        $this->client = new Client([
             'auth' => [
                 $config['login'], $config['password'],
             ]
         ]);
 
         $this->endpoint = implode('/', [
-            $config['apiURL'], '/repositories/', $config['owner'], $config['slug'], 'pullrequests'
+            $config['apiURL'], 'repositories', $config['owner'], $config['slug'], 'pullrequests'
         ]);
 
         if (isset($config['state'])) {
