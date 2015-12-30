@@ -73,6 +73,7 @@ class bbApiRequestConflicts
         $links = [];
 
         $url = $this->endpoint . ($this->state ? '?state=' . $this->state : '');
+
         do {
             $response = $this->client->get($url);
             $result = json_decode($response->getBody(), true);
@@ -81,7 +82,7 @@ class bbApiRequestConflicts
             $requests = $result['values'];
             foreach ($requests as $request) {
                 if ($this->checkLogin
-                    && $this->login == $request['author']['username']) {
+                    && $this->login !== $request['author']['username']) {
                     continue;
                 }
 
